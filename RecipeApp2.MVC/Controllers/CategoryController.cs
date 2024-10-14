@@ -1,6 +1,7 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
 using RecipeApp2.MVC.Data;
+using RecipeApp2.MVC.Models;
 
 namespace RecipeApp2.MVC.Controllers;
 
@@ -12,22 +13,35 @@ public class CategoryController : Controller
     {
         _context = context;
     }
+
     public IActionResult Index()
     {
         var categories = _context.Categories.ToList();
         return View(categories);
     }
 
-    public IActionResult Create()
+     public IActionResult Create()
     {
         return View();
+    }
+
+    [HttpPost]
+    public IActionResult Create(Category category)
+    {
+        // Add the category to the database.
+        // Add category object to context.
+        _context.Categories.Add(category);
+
+        //Save change to database
+        _context.SaveChanges();
+        return RedirectToAction("Index");
     }
 
     public IActionResult Edit(int id)
     {
         return View();
     }
-    
+
     public IActionResult Delete(int id)
     {
         // Check if the category exists.
