@@ -1,4 +1,4 @@
-namespace RecipeApp.MVC.Models;
+namespace RecipeApp2.MVC.Models;
 
 public class Category
 {

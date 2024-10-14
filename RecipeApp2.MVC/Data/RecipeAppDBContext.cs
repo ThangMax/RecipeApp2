@@ -1,6 +1,6 @@
 using System;
 using Microsoft.EntityFrameworkCore;
-using RecipeApp.MVC.Models;
+using RecipeApp2.MVC.Models;
 
 namespace RecipeApp2.MVC.Data;
 
