@@ -1,5 +1,11 @@
+using Microsoft.EntityFrameworkCore;
+using RecipeApp2.MVC.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
+// Add DbContext to the container.
+builder.Services.AddDbContext<RecipeAppDBContext>(options =>
+ options.UseSqlServer(builder.Configuration.GetConnectionString("RecipeApp2Connection")));
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
